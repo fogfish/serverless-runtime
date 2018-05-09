@@ -92,8 +92,6 @@ compile: rebar3
 test: _build/test.beam
 	@mkdir -p /tmp/test/${APP}
 	@erl ${EFLAGS} -noshell -pa _build/ -pa test/ -run test run test/${TEST}.config
-	@F=`ls /tmp/test/${APP}/ct_run*/all.coverdata | tail -n 1` ;\
-	cp $$F /tmp/test/${APP}/ct.coverdata
 
 _build/test.beam: _build/test.erl
 	@erlc -o _build $<
