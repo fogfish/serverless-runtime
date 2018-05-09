@@ -1,0 +1,67 @@
+##
+## @doc 
+##   
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Serverless resources
+
+
+Resources:
+
+  ReLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub ${AWS::StackName}
+      Handler: index.handler
+      Role: !GetAtt [IamRoleLambda, Arn]
+      Code:
+        S3Bucket: silvere-software
+        S3Key: Archive.zip
+      #   ZipFile:
+      #     exports.handler = function(event, context, cb) { return cb(null, {message:'Hello World'}); };
+      # Environment:
+      #   Variables:
+      #     TEST: xxx
+      Runtime: nodejs8.10
+      MemorySize: 1024
+      Timeout: 30
+
+  IamRoleLambda:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub ${AWS::StackName}-role-lambda
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+            - sts:AssumeRole
+      Path: "/"
+      Policies:
+        - PolicyName: !Sub ${AWS::StackName}-lambda
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - !Sub arn:aws:logs:${AWS::Region}:*:*
+
+
+  # ReLambdaInvokePermission:
+  #   Type: AWS::Lambda::Permission
+  #   Properties:
+  #     Action: lambda:InvokeFunction
+  #     Principal: sns.amazonaws.com
+  #     SourceArn:
+  #       Ref: ReTopic
+  #     FunctionName:
+  #       Fn::GetAtt:
+  #       - ReLambda
+  #       - Arn
+
