@@ -1,6 +1,7 @@
 const { spawn } = require('child_process');
 
-const erl = spawn('./serverless-runtime/erts-9.2/bin/escript', ['APP'], {env:{'HOME': '/var/task'}});
+const env = process.env
+const erl = spawn('./serverless-runtime/erts-9.2/bin/escript', ['APP'], {env: { ...env, HOME: "/var/task" }});
 erl.stdin.setEncoding = 'utf-8';
 
 exports.handler = async function(event) {
