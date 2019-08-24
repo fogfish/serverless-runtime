@@ -5,10 +5,11 @@
  {<<"erlcloud">>,{pkg,<<"erlcloud">>,<<"3.1.5">>},0},
  {<<"jsx">>,{pkg,<<"jsx">>,<<"2.9.0">>},0},
  {<<"lhttpc">>,{pkg,<<"lhttpc">>,<<"1.5.4">>},1},
- {<<"meck">>,{pkg,<<"meck">>,<<"0.8.9">>},1},
+ {<<"meck">>,{pkg,<<"meck">>,<<"0.8.12">>},1},
+ {<<"pipe">>,{pkg,<<"pipes">>,<<"2.0.0">>},1},
  {<<"serverless">>,
   {git,"https://github.com/fogfish/serverless",
-       {ref,"190910e6670f024317ebe0c6f2b7e961f8b6a7b4"}},
+       {ref,"cbe15d32de005a87741d98d1db88fd4ac609daf6"}},
   0}]}.
 [
 {pkg_hash,[
@@ -18,5 +19,6 @@
  {<<"erlcloud">>, <<"534CD81B81DF02BA1207FA00B9A96D695B2689187077589A469AC63A84D0FB5C">>},
  {<<"jsx">>, <<"D2F6E5F069C00266CAD52FB15D87C428579EA4D7D73A33669E12679E203329DD">>},
  {<<"lhttpc">>, <<"405E4F460D67FE8F43F0E6D64E4D168F8A5CFF3AD34D78114688753DAA80FBEB">>},
- {<<"meck">>, <<"64C5C0BD8BCCA3A180B44196265C8ED7594E16BCC845D0698EC6B4E577F48188">>}]}
+ {<<"meck">>, <<"1F7B1A9F5D12C511848FEC26BBEFD09A21E1432EADB8982D9A8ACEB9891A3CF2">>},
+ {<<"pipe">>, <<"A10DF54F1EC80EAA491EE7BD689C794886E6E668A9F05436514695E9CF5370AE">>}]}
 ].

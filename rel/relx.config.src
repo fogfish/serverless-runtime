@@ -21,6 +21,5 @@
    ssl,
    syntax_tools,
    xmerl,
-   serverless,
-   erlcloud
+   serverless
 ]}.
